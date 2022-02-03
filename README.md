@@ -1,27 +1,63 @@
-# LoginCRUDMongo
+# Login - CRUD - MongoDB
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.13.
+_TODO_
 
-## Development server
+## Comenzando 🚀
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+_Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
 
-## Code scaffolding
+### Pre-requisitos 📋
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+_Necesitaremos de una api para este proyecto, la cual podras encontrar en el siguiente enlace._
 
-## Build
+```
+TODO
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+_Angular requiere una versión LTS activa o LTS en mantenimiento de Node.js._
 
-## Running unit tests
+```
+https://nodejs.org/en/about/releases/
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+_Te recomiendo como editor de códigos Visual Studio Code_
 
-## Running end-to-end tests
+```
+https://code.visualstudio.com/
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+_pero puedes utilizar cualquiera._
 
-## Further help
+### Instalación del proyecto🔧
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+_Una vez clonado este repositorio, se deben instalar las dependencias para que se ejecute, asi que, dentro de la carpeta este proyecto, ejecutaremos los siguientes comandos en terminal_
+
+```
+npm install
+```
+
+_Ahora, necesitaremos agregar la ruta de nuestra api._
+_Dentro de este proyecto, navegaremos hasta el archivo de enviroment y agregaremos la ruta._
+
+_Ruta de archivo:_
+
+```
+TODO
+```
+
+_Estamos listos, ahora solo nos queda arrancar el Front-End, en la consola ejecutaremos el siguiente comando._
+
+```
+ng serve -o
+```
+
+_Esperamos a que finalice y se debería abrir su navegador la aplicación. En caso de que no se abriera, de forma manual abra su navegador y acceda a la ruta_
+
+```
+http://localhost:4200/
+```
+
+## Recursos utilizados 🛠️
+
+- [Bootstrap](https://getbootstrap.com/) - Usado para los estilos.
+- [Bootstrap Icons](https://icons.getbootstrap.com/) - Iconos usados para la decoración.
