@@ -1,0 +1,10 @@
+nav {
+  background-color: rgb(31, 78, 136);
+}
+
+@media screen and (min-width: 1000px) {
+  #navbarNav {
+    display: flex;
+    justify-content: space-between;
+  }
+}
