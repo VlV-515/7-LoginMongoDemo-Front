@@ -1,0 +1,14 @@
+.icon {
+  font-size: 7rem;
+}
+.container-login {
+  border-radius: 5px;
+  box-shadow: 0px 0px 1rem rgb(63, 62, 62);
+}
+.btn-btn {
+  background-color: rgb(31, 78, 136);
+  color: #fff;
+}
+.btn-btn:hover {
+  background-color: rgb(14, 51, 97);
+}
