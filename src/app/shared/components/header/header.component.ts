@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  constructor(public readonly loginSvc:LoginService) {}
+  constructor(public readonly loginSvc: LoginService) {}
+  btnLogOut(): void {
+    window.alert('Hasta luego');
+    this.loginSvc.logOut();
+  }
 }
