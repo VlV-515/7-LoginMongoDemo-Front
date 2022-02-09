@@ -63,20 +63,9 @@ export class LoginService {
     const usernameLS = localStorage.getItem('username');
     const roleLS = localStorage.getItem('role');
     const tokenLS = localStorage.getItem('token');
-    console.log(usernameLS);
-
-    if (!usernameLS || !roleLS || tokenLS) return this.logOut();
-    //TODO Interceptor
-    const headers = new HttpHeaders()
-      .set('Content-Type', 'Application/json')
-      .set('role', roleLS!)
-      .set('username', usernameLS!)
-      .set('token', tokenLS!);
-    //TODO Interceptor
+    if (!usernameLS || !roleLS || !tokenLS) return this.logOut();
     this.http
-      .get<SessionTokenResp>(`${environment.URL_API}/login/checkToken`, {
-        headers,
-      })
+      .get<SessionTokenResp>(`${environment.URL_API}/login/checkToken`)
       .subscribe({
         next: (resp: SessionTokenResp) => {
           if (resp.msg == 'ok') {
