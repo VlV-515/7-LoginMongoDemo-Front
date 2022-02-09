@@ -60,11 +60,12 @@ export class LoginService {
     this.router.navigate(['/login']);
   }
   checkSession(): void {
-    console.log('Hola');
     const usernameLS = localStorage.getItem('username');
     const roleLS = localStorage.getItem('role');
     const tokenLS = localStorage.getItem('token');
-    if (!usernameLS && !roleLS && tokenLS) return this.logOut();
+    console.log(usernameLS);
+
+    if (!usernameLS || !roleLS || tokenLS) return this.logOut();
     //TODO Interceptor
     const headers = new HttpHeaders()
       .set('Content-Type', 'Application/json')
