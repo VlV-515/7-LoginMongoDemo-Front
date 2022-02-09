@@ -14,6 +14,7 @@ const routes: Routes = [
       import('./pages/login/login.module').then((m) => m.LoginModule),
     canActivate: [LoginGuard],
   },
+  { path: 'crud', loadChildren: () => import('./pages/crud/crud.module').then(m => m.CrudModule) },
   {
     path: '**',
     pathMatch: 'full',
