@@ -4,9 +4,14 @@ import {
   Roles,
   LoginInterface,
   LoginRespInterface,
+  SessionTokenResp,
 } from './../interfaces/login.interface';
 import { Router } from '@angular/router';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 
@@ -17,7 +22,10 @@ export class LoginService {
   constructor(
     private readonly http: HttpClient,
     private readonly router: Router
-  ) {}
+  ) {
+    this.checkSession();
+  }
+
   //Observers
   private logged = new BehaviorSubject<boolean>(false);
   getLogged(): Observable<boolean> {
@@ -50,6 +58,37 @@ export class LoginService {
     this.role.next(null);
     localStorage.clear();
     this.router.navigate(['/login']);
+  }
+  checkSession(): void {
+    console.log('Hola');
+    const usernameLS = localStorage.getItem('username');
+    const roleLS = localStorage.getItem('role');
+    const tokenLS = localStorage.getItem('token');
+    if (!usernameLS && !roleLS && tokenLS) return this.logOut();
+    //TODO Interceptor
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'Application/json')
+      .set('role', roleLS!)
+      .set('username', usernameLS!)
+      .set('token', tokenLS!);
+    //TODO Interceptor
+    this.http
+      .get<SessionTokenResp>(`${environment.URL_API}/login/checkToken`, {
+        headers,
+      })
+      .subscribe({
+        next: (resp: SessionTokenResp) => {
+          if (resp.msg == 'ok') {
+            this.logged.next(true);
+            this.role.next(roleLS as Roles);
+            localStorage.setItem('token', resp.newToken!);
+          }
+        },
+        error: (err) => {
+          this.logOut();
+          this.handlerError(err);
+        },
+      });
   }
   //Save in Local Storage
   saveInLocalStorage(data: LoginRespInterface): void {
