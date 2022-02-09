@@ -1,3 +1,4 @@
+import { LoginService } from './services/login.service';
 import { LoginInterface } from './interfaces/login.interface';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -9,7 +10,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   formLogin!: FormGroup;
-  constructor(public readonly fb: FormBuilder) {
+  constructor(
+    public readonly fb: FormBuilder,
+    private readonly loginSvc: LoginService
+  ) {
     this.createForm();
   }
   ngOnInit(): void {}
@@ -20,6 +24,6 @@ export class LoginComponent implements OnInit {
     });
   }
   btnLogin(form: LoginInterface) {
-    console.log(form);
+    this.loginSvc.sigIn(form).subscribe();
   }
 }
