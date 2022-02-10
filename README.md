@@ -1,6 +1,6 @@
-# Login - CRUD - MongoDB
+# APP de 'Login - MONGO'
 
-_TODO_
+_Pequeña APP demo de Login con muestra de vista por role de usuario_
 
 ## Comenzando 🚀
 
@@ -10,9 +10,7 @@ _Estas instrucciones te permitirán obtener una copia del proyecto en funcionami
 
 _Necesitaremos de una api para este proyecto, la cual podras encontrar en el siguiente enlace._
 
-```
-TODO
-```
+1. API Login Mongo [Enlace]('https://github.com/VlV-515/7-LoginMongoDemo-API')
 
 _Angular requiere una versión LTS activa o LTS en mantenimiento de Node.js._
 
@@ -36,16 +34,8 @@ _Una vez clonado este repositorio, se deben instalar las dependencias para que s
 npm install
 ```
 
-_Ahora, necesitaremos agregar la ruta de nuestra api._
-_Dentro de este proyecto, navegaremos hasta el archivo de enviroment y agregaremos la ruta._
-
-_Ruta de archivo:_
-
-```
-TODO
-```
-
-_Estamos listos, ahora solo nos queda arrancar el Front-End, en la consola ejecutaremos el siguiente comando._
+_Teniendo operacional el API, estamos listos._
+_Ahora levantaremos el front ejecutando en consola el siguiente comando._
 
 ```
 ng serve -o
