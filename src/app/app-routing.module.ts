@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminGuard } from './shared/guards/admin.guard';
 import { LoginGuard } from './shared/guards/login.guard';
 
 const routes: Routes = [
@@ -14,7 +15,12 @@ const routes: Routes = [
       import('./pages/login/login.module').then((m) => m.LoginModule),
     canActivate: [LoginGuard],
   },
-  { path: 'crud', loadChildren: () => import('./pages/crud/crud.module').then(m => m.CrudModule) },
+  {
+    path: 'crud',
+    loadChildren: () =>
+      import('./pages/crud/crud.module').then((m) => m.CrudModule),
+    canActivate: [AdminGuard],
+  },
   {
     path: '**',
     pathMatch: 'full',
